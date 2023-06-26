@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
-const Detalhes = ({ match }) => {
+const Detalhes = () => {
+  const { id } = useParams();
   const [card, setCard] = useState(null);
 
   useEffect(() => {
     const fetchCard = async () => {
       try {
-        const response = await axios.get(`https://db.ygoprodeck.com/api/v7/cardinfo.php?id=${match.params.id}`);
+        const response = await axios.get(`https://db.ygoprodeck.com/api/v7/cardinfo.php?id=${id}`);
         setCard(response.data.data[0]);
       } catch (error) {
         console.error(error);
@@ -16,23 +17,23 @@ const Detalhes = ({ match }) => {
     };
 
     fetchCard();
-  }, [match.params.id]);
+  }, [id]);
 
   if (!card) {
     return <div>Carregando...</div>;
   }
 
+  const { name, type, desc, card_images, atk, def } = card;
+
   return (
     <div>
-      <h1>Detalhes</h1>
-      <img src={card.card_images[0].image_url} alt={card.name} />
-      <h2>{card.name}</h2>
-      <p>{card.type}</p>
-      <p>Ataque: {card.atk}</p>
-      <p>Defesa: {card.def}</p>
-      {/* Exiba mais informações sobre a carta, conforme necessário */}
-      <Link to="/">Voltar para a listagem</Link>
-      <Link to="/formulario">Ir para o formulário</Link>
+      <h1>Detalhes da Carta</h1>
+      <img src={card_images[0].image_url} alt={name} />
+      <h2>{name}</h2>
+      <p>{desc}</p>
+      <p>Tipo: {type}</p>
+      <p>Ataque: {atk !== undefined ? atk : 'N/A'}</p>
+      <p>Defesa: {def !== undefined ? def : 'N/A'}</p>
     </div>
   );
 };
