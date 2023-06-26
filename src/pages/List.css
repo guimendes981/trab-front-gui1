@@ -1,0 +1,36 @@
+h1 {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.card-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .card-link {
+    text-decoration: none;
+    margin: 10px;
+  }
+  
+  .card {
+    width: 200px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 8px solid black;
+    text-align: center;
+  }
+  
+  .card-image {
+    width: 150px;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
+  
+  .card-name {
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
