@@ -1,9 +1,9 @@
 h1 {
     text-align: center;
     margin: 20px 0;
-}
-
-.card-list {
+  }
+  
+  .card-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -18,7 +18,7 @@ h1 {
     width: 200px;
     padding: 10px;
     background-color: #f0f0f0;
-    border-radius: 1px solid black;
+    border: 1px solid black;
     text-align: center;
   }
   
@@ -32,5 +32,25 @@ h1 {
   .card-name {
     font-size: 14px;
     font-weight: bold;
+  }
+  
+  .pagination {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .pagination-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #f0f0f0;
+    border: 1px solid black;
+    cursor: pointer;
+  }
+  
+  .pagination-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
   }
   
