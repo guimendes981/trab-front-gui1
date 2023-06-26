@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import './Detail.css';
+
 
 const Detalhes = () => {
   const { id } = useParams();
@@ -26,14 +28,17 @@ const Detalhes = () => {
   const { name, type, desc, card_images, atk, def } = card;
 
   return (
-    <div>
-      <h1>Detalhes da Carta</h1>
-      <img src={card_images[0].image_url} alt={name} />
-      <h2>{name}</h2>
-      <p>{desc}</p>
-      <p>Tipo: {type}</p>
-      <p>Ataque: {atk !== undefined ? atk : 'N/A'}</p>
-      <p>Defesa: {def !== undefined ? def : 'N/A'}</p>
+       <div className="container">
+      <img src={card_images[0].image_url} alt={name} className="card-image" />
+      <div className="card-details">
+        <h2 className="card-name">{name}</h2>
+        <p className="card-type">{type}</p>
+        <p className="card-description">{desc}</p>
+        <div className="card-atk-def">
+          <p className="card-atk">Ataque: {atk}</p>
+          <p className="card-def">Defesa: {def}</p>
+        </div>
+      </div>
     </div>
   );
 };
