@@ -21,13 +21,11 @@ const Listagem = () => {
     fetchData();
   }, []);
 
-  // Paginação
   const indexOfLastCard = currentPage * cardsPerPage;
   const indexOfFirstCard = indexOfLastCard - cardsPerPage;
   const currentCards = dados.slice(indexOfFirstCard, indexOfLastCard);
   const totalPages = Math.ceil(dados.length / cardsPerPage);
 
-  // Funções para a paginação
   const handlePreviousPage = () => {
     setCurrentPage((prevPage) => prevPage - 1);
   };
@@ -50,7 +48,6 @@ const Listagem = () => {
         ))}
       </div>
 
-      {/* Paginação */}
       <div className="pagination">
         <button
           onClick={handlePreviousPage}
