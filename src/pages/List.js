@@ -36,7 +36,7 @@ const Listagem = () => {
 
   return (
     <div>
-      <h1>Listagem</h1>
+      <h1>Cards de yu-gi-oh!</h1>
       <div className="card-list">
         {currentCards.map((card) => (
           <Link to={`/detalhes/${card.id}`} key={card.id} className="card-link">
